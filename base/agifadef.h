@@ -1,11 +1,11 @@
 // Project AGIFA                                                              //
 // Copyright © 2021 Victor Artyukhov. All Rights Reserved.                    //
 //                                                                            //
-//	FILE:       agifadef.h                                                    //
-//	AUTHOR:     Victor Artyukhov                                              //
+// FILE:       agifadef.h                                                     //
+// AUTHOR:     Victor Artyukhov                                               //
 //                                                                            //
-//  For license and copyright information please follow this link:            //
-//  https://github.com/LiveBaster/agifa/blob/main/LICENSE                     //
+// For license and copyright information please follow this link:             //
+// https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
 
 #if !defined( __AGIFADEF_H )
 #define __AGIFADEF_H

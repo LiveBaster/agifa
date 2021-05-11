@@ -16,9 +16,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \
     base/agifa_array.h \
+    base/agifa_array_pointers.h \
     base/agifadef.h
 
 SOURCES += \
+    base/agifa_array_pointers.cpp \
     main.cpp
 
 TRANSLATIONS += \

@@ -39,8 +39,8 @@
 4. [Интеллектуальный Торговый Робот](https://github.com/LiveBaster/agifa/blob/main/docs/AGIFA_ITR.pdf) (ИТР/ITR) для финансового рынка акций, использующий AGIFA для управления портфелем.
 
 Telegram:
-Группа, посвященная проблемам AI и AGI: [https://t.me/agirussia](https://t.me/agirussia)
-Группа для тех, кому может быть интересна тема использования AI/AGI для финтехнологий, а также тех, кто имеет в этой сфере компетенции: [https://t.me/agifintech](https://t.me/agifintech)
+* Группа, посвященная проблемам AI и AGI: [https://t.me/agirussia](https://t.me/agirussia)
+* Группа для тех, кому может быть интересна тема использования AI/AGI для финтехнологий, а также тех, кто имеет в этой сфере компетенции: [https://t.me/agifintech](https://t.me/agifintech)
 
 
 Supported user databases

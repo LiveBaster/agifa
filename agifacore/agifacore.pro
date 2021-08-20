@@ -14,19 +14,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-HEADERS += \
-    base/agifa_array.h \
-    base/agifa_array_pointers.h \
-    base/agifadef.h
-
 SOURCES += \
-    base/agifa_array_pointers.cpp \
-    main.cpp
+        main.cpp
 
 TRANSLATIONS += \
-    agifa_ru_RU.ts
+    agifacore_ru_RU.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+unix:!macx: LIBS += -L$$PWD/../build-agifalib-MyKits-Debug/ -lagifalib
+
+INCLUDEPATH += $$PWD/../agifalib
+DEPENDPATH += $$PWD/../agifalib

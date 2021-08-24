@@ -51,6 +51,8 @@
  в) оптимизация потребления полезных веществ для каждого члена семьи в отдельности, с учётом имеющихся хронических заболеваний<br/>
  г) интеграция с медицинскими системами, с целью повышения полезности питания<br/>
 
+6. [Автономный дрон](#) - реальный самообучаемый робот в "железе"<br/>
+
 Telegram:
 * [https://t.me/agirussia](https://t.me/agirussia) - группа, посвященная проблемам AI и AGI.
 * [https://t.me/agifintech](https://t.me/agifintech) - группа для тех, кому может быть интересна тема использования AI/AGI для финтехнологий, а также тех, кто имеет в этой сфере компетенции.
@@ -64,8 +66,16 @@ The supported project target platforms are:
 
   * Linux (Debian, Ubuntu, CentOS, Fedora, Redhat)
 
-Contact information:
+Основатели (The founders of the project):
 
-http://www.livebaster.ru
-email:vic_art@livebaster.ru
+**Артюхов Виктор** (Victor Artyukhov): <br/>
+http://www.livebaster.ru <br/>
+email: vic_art@livebaster.ru <br/>
+linkedin: https://www.linkedin.com/in/victor-artyukhov-livebaster <br/>
 
+**Виктор Казаринов** (Victor Kazarinov): <br/>
+victor1<собака>kazarinov<точка>biz <br/>
+<br/>
+Репозитории проекта (mirrors): <br/>
+https://github.com/LiveBaster/Agifa <br/>
+https://github.com/FreeAGI <br/>

@@ -1,25 +1,29 @@
 // Project AGIFA/ITR                                                          //
 // Copyright © 2021 Victor Artyukhov. All Rights Reserved.                    //
 //                                                                            //
-// FILE:       main.cpp                                                       //
+// FILE:       itr_order.h                                                    //
 // AUTHOR:     Victor Artyukhov                                               //
 //                                                                            //
 // For license and copyright information please follow this link:             //
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
 
-#include <QCoreApplication>
+#if !defined( __ITR_ORDER_H )
+#define __ITR_ORDER_H
+
 #include <QtCore>
-#include <QObject>
-#include "itr_manager.h"
 
-using namespace itr;
-
-int main(int argc, char *argv[])
+namespace itr
 {
-    QCoreApplication application( argc, argv );
 
-    ItrManager* ItrManager = new class ItrManager( &application );
-    QObject::connect( ItrManager, SIGNAL(finished()), &application, SLOT(quit()) );
-    QTimer::singleShot( 0, ItrManager, SLOT(run()) );
-    return application.exec();
+class ItrOrder
+// заявка
+{
+protected:
+public:
+    ItrOrder();
+    virtual ~ItrOrder();
+};
+
 }
+
+#endif

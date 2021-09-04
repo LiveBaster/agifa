@@ -1,25 +1,23 @@
 // Project AGIFA/ITR                                                          //
 // Copyright © 2021 Victor Artyukhov. All Rights Reserved.                    //
 //                                                                            //
-// FILE:       main.cpp                                                       //
+// FILE:       itr_portfolio.cpp                                              //
 // AUTHOR:     Victor Artyukhov                                               //
 //                                                                            //
 // For license and copyright information please follow this link:             //
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
 
-#include <QCoreApplication>
-#include <QtCore>
-#include <QObject>
-#include "itr_manager.h"
+#include "itr_portfolio.h"
 
-using namespace itr;
-
-int main(int argc, char *argv[])
+namespace itr
 {
-    QCoreApplication application( argc, argv );
 
-    ItrManager* ItrManager = new class ItrManager( &application );
-    QObject::connect( ItrManager, SIGNAL(finished()), &application, SLOT(quit()) );
-    QTimer::singleShot( 0, ItrManager, SLOT(run()) );
-    return application.exec();
+ItrPortfolio::ItrPortfolio()
+{
+}
+
+ItrPortfolio::~ItrPortfolio()
+{
+}
+
 }

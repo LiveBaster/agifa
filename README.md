@@ -56,7 +56,7 @@
 Telegram:
 * [https://t.me/agirussia](https://t.me/agirussia) - группа, посвященная проблемам AI и AGI.
 * [https://t.me/agifintech](https://t.me/agifintech) - группа для тех, кому может быть интересна тема использования AI/AGI для финтехнологий, а также тех, кто имеет в этой сфере компетенции.
-* [https://t.me/freeagi](https://t.me/freeagi) - группа об open-source общем искусственном интеллекте: freeagi.org, [https://github.com/FreeAGI](https://github.com/FreeAGI).
+* [https://t.me/freeagi](https://t.me/freeagi) - группа об open-source общем искусственном интеллекте: [freeagi.org](freeagi.org), [https://github.com/FreeAGI](https://github.com/FreeAGI).
 
 
 Supported user databases

@@ -16,6 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        itr_broker.cpp \
+        itr_currency.cpp \
         itr_manager.cpp \
         itr_order.cpp \
         itr_paperbase.cpp \
@@ -29,8 +31,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    itr_broker.h \
+    itr_currency.h \
     itr_manager.h \
     itr_order.h \
     itr_paperbase.h \
     itr_portfolio.h \
     itr_stock.h
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-agifalib-MyKits-Debug/release/ -lagifalib
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-agifalib-MyKits-Debug/debug/ -lagifalib
+else:unix: LIBS += -L$$PWD/../build-agifalib-MyKits-Debug/ -lagifalib
+
+INCLUDEPATH += $$PWD/../agifalib
+DEPENDPATH += $$PWD/../agifalib

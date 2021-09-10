@@ -23,6 +23,7 @@ SOURCES += \
 HEADERS += \
     agifa_array.h \
     agifa_array_pointers.h \
+    agifadef.h \
     agifalib_global.h \
     agifalib.h
 

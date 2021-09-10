@@ -12,6 +12,7 @@
 
 #include "agifadef.h"
 #include <cstring>
+#include "agifalib_global.h"
 
 namespace agifa_base
 {
@@ -20,7 +21,7 @@ const index_t AddMaxCountArrayPointer = 5;
 
 //--- Class AgifaLinkPointer ---------------------------------------------------
 
-class AgifaLinkPointer
+class AGIFALIB_EXPORT AgifaLinkPointer
 {
 public:
     AgifaLinkPointer() {}
@@ -37,7 +38,7 @@ const unsigned char
     flpDuplicates   = 0x01, // позволяет иметь одинаковые элементы
     flpFreeHead     = 0x02; // освобождает только голову списка
 
-class AgifaArrayPointers : public AgifaLinkPointer
+class AGIFALIB_EXPORT AgifaArrayPointers : public AgifaLinkPointer
 {
 public:
     AgifaLinkPointer** m_pList;

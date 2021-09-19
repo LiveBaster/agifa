@@ -13,6 +13,8 @@
 #include <QtCore>
 #include <QObject>
 
+#include "itr_broker.h"
+
 namespace itr
 {
 
@@ -20,6 +22,8 @@ class ItrManager : public QObject
 {
     Q_OBJECT
 protected:
+    bool m_isRun;
+    ItrBroker* m_pBroker;
     QThread m_brokerThread;
 public:
     ItrManager( QObject* parent = nullptr );
@@ -35,7 +39,6 @@ public:
 public slots:
     void run();
     void handleResults( const QString& result );
-
 signals:
     void finished();
 };

@@ -32,7 +32,9 @@ public:
     ItrBroker();
     virtual ~ItrBroker();
 
+public slots:
     void doWork();
+    void exitWork();
 signals:
     void resultReady( const QString& result );
 };

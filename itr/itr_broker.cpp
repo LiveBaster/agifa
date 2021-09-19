@@ -8,6 +8,7 @@
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
 
 #include <iostream>
+#include <time.h>
 
 #include "itr_broker.h"
 
@@ -33,15 +34,24 @@ void ItrBroker::doWork()
     m_isRun = true;
 
     std::cout << "ItrBroker::run1()\n";
-/*
+
     while( m_isRun )
     {
-
+        std::cout << "ItrBroker::while()\n";
+        int delay = 1;
+        struct timespec ts = { delay/10, 1 };
+        timespec remaining;
+        nanosleep( &ts, &remaining );
     }
-*/
+
     std::cout << "ItrBroker::run2()\n";
 
     emit resultReady( result );
+}
+
+void ItrBroker::exitWork()
+{
+    m_isRun = false;
 }
 
 }

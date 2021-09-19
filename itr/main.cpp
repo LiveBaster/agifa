@@ -7,6 +7,8 @@
 // For license and copyright information please follow this link:             //
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
 
+#include <csignal>
+
 #include <QCoreApplication>
 #include <QtCore>
 #include <QObject>

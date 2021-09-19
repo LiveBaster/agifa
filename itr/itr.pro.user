@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2021-09-19T14:20:23. -->
+<!-- Written by QtCreator 4.11.0, 2021-09-19T19:02:42. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -284,7 +284,9 @@
      <value type="int">14</value>
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes">
+     <value type="QString">LD_LIBRARY_PATH=/home/victor/Projects/agifa/build-itr-MyKits-Debug;/home/victor/Projects/agifa/itr/../build-agifalib-MyKits-Debug/:/usr/lib/x86_64-linux-gnu</value>
+    </valuelist>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/victor/Projects/agifa/itr/itr.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/victor/Projects/agifa/itr/itr.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>

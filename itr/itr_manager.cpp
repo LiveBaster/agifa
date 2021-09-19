@@ -7,7 +7,10 @@
 // For license and copyright information please follow this link:             //
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
 
+#include <iostream>
+
 #include "itr_manager.h"
+#include "itr_broker.h"
 
 namespace itr
 {
@@ -15,17 +18,33 @@ namespace itr
 ItrManager::ItrManager(QObject *parent) :
     QObject(parent)
 {
+    ItrBroker* pBroker = new ItrBroker();
+    connect( &m_brokerThread, &QThread::started, pBroker, &ItrBroker::doWork );
+    connect( &m_brokerThread, &QThread::finished, pBroker, &QObject::deleteLater );
+    connect( pBroker, &ItrBroker::resultReady, this, &ItrManager::handleResults );
+    pBroker->moveToThread( &m_brokerThread );
+    m_brokerThread.start();
 }
 
 ItrManager::~ItrManager()
 {
+    m_brokerThread.quit();
+    m_brokerThread.wait();
 }
 
 void ItrManager::run()
 {
-    // Do processing here
+
+    std::cout << "ItrManager::run()\n";
 
     emit finished();
+}
+
+void ItrManager::handleResults( const QString& result )
+{
+
+    std::cout << "ItrManager::handleResults()" << result.toStdString() << "\n";
+
 }
 
 }

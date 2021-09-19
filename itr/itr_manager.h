@@ -19,8 +19,10 @@ namespace itr
 class ItrManager : public QObject
 {
     Q_OBJECT
+protected:
+    QThread m_brokerThread;
 public:
-    ItrManager(QObject *parent = nullptr);
+    ItrManager( QObject* parent = nullptr );
     virtual ~ItrManager();
 
     // выбрать перспективную акцию из списка доступных акций
@@ -32,6 +34,7 @@ public:
 
 public slots:
     void run();
+    void handleResults( const QString& result );
 
 signals:
     void finished();

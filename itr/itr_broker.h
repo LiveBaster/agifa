@@ -11,19 +11,30 @@
 #define __ITR_BROKER_H
 
 #include <QtCore>
+#include <QObject>
+#include "itr_stock.h"
 
 namespace itr
 {
 
-class ItrBroker
+using namespace agifa_base;
+
+class ItrBroker : public QObject
 // симулятор брокера
-// входные данные: потоки истории цен по каждому инструменту, потоки заявок
-// выходные данные: потоки результатов исполнения заявок
+// входные данные: потоки истории цен по каждому инструменту, поток заявок
+// выходные данные: поток результатов исполнения заявок
 {
+    Q_OBJECT
 protected:
+    AgifaArrayTemp<ItrStock> m_stocks;
+    bool m_isRun;
 public:
     ItrBroker();
     virtual ~ItrBroker();
+
+    void doWork();
+signals:
+    void resultReady( const QString& result );
 };
 
 }

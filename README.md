@@ -76,6 +76,12 @@ linkedin: https://www.linkedin.com/in/victor-artyukhov-livebaster <br/>
 
 **Виктор Казаринов** (Victor Kazarinov): <br/>
 email: victor1<собака>kazarinov<точка>biz <br/>
+
+**Иван Фролов** (Ivan Frolov): <br/>
+email: skyyk.frolov@yandex.ru <br/>
+
+**Никита Демирза** (Nikita Demerza): <br/>
+email: nikitademerza@gmail.com <br/>
 <br/>
 Репозитории проекта (mirrors): <br/>
 https://github.com/LiveBaster/Agifa <br/>

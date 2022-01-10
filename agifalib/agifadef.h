@@ -17,7 +17,13 @@ namespace agifa_base
 {
 
 typedef int64_t index_t;
+typedef index_t id_t;
 typedef int64_t count_t;
+
+typedef int64_t result_t; // тип данных для текущего результата
+typedef result_t target_t; // тип данных для требуемого результата
+typedef result_t deviation_t; // тип данных для отклонения от требуемого результата
+typedef result_t action_t; // тип данных для действия
 
 const index_t IndexEmpty = -1;
 const index_t AddCount   = 50;

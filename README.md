@@ -80,7 +80,7 @@ email: victor1<собака>kazarinov<точка>biz <br/>
 **Иван Фролов** (Ivan Frolov): <br/>
 email: skyyk.frolov@yandex.ru <br/>
 
-**Никита Демирза** (Nikita Demerza): <br/>
+**Никита Демерза** (Nikita Demerza): <br/>
 email: nikitademerza@gmail.com <br/>
 <br/>
 Репозитории проекта (mirrors): <br/>

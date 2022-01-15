@@ -1,0 +1,51 @@
+// Project AGIFA                                                              //
+// Copyright © 2021 Victor Artyukhov. All Rights Reserved.                    //
+//                                                                            //
+// FILE:       agifa_node.h                                                   //
+// AUTHOR:     Victor Artyukhov                                               //
+//                                                                            //
+// For license and copyright information please follow this link:             //
+// https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
+
+#if !defined( __AGIFA_NODE_H )
+#define __AGIFA_NODE_H
+
+#include "agifadef.h"
+#include "agifalib_global.h"
+#include "agifa_array.h"
+#include "agifa_array_pointers.h"
+
+namespace agifa_base
+{
+
+class AGIFALIB_EXPORT AgifaNode : public AgifaLinkPointer
+// узел дерева результатов
+{
+protected:
+    // идентификатор узла
+    id_t m_nodeId;
+    // достигнутый результат
+    result_t m_result;
+    // действие, выполняемое исполнительным устройством
+    action_t m_action;
+    // родительские узлы
+    AgifaArray<id_t> m_parentNodes;
+    // дочерние узлы
+    AgifaArray<id_t> m_childNodes;
+public:
+    AgifaNode();
+    virtual ~AgifaNode();
+
+    virtual int Compare( const AgifaLinkPointer* poi );
+    virtual AgifaLinkPointer* Duplicate() const;
+    virtual AgifaLinkPointer* Copy( const AgifaLinkPointer* poi );
+
+    // акцептор действия
+    bool ActionAcceptor( target_t target, result_t result );
+    // синтезирует очередное новое действие (ориентировочно-исследовательская реакция)
+    action_t SynthesisOfAction();
+};
+
+}
+
+#endif

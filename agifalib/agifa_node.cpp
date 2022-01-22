@@ -51,8 +51,8 @@ AgifaLinkPointer* AgifaNode::Copy( const AgifaLinkPointer* poi )
 
 bool AgifaNode::ActionAcceptor( target_t target, result_t result )
 {
-    if(target == result){
-        return true
+    if( target == result ) {
+        return true;
     }
     return false;
 }

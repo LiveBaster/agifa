@@ -25,6 +25,8 @@ class AGIFALIB_EXPORT AgifaSystem : public AgifaLinkPointer
 // система взаимосодействующих компонентов
 {
 protected:
+    // идентификатор системы
+    id_t m_systemId;
     // деревья результатов
     AgifaArrayTemp<AgifaNode> m_trees;
     // датчики

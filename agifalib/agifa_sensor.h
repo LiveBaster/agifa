@@ -2,7 +2,7 @@
 // Copyright © 2022 Victor Artyukhov. All Rights Reserved.                    //
 //                                                                            //
 // FILE:       agifa_sensor.h                                                 //
-// AUTHOR:     Victor Artyukhov                                               //
+// AUTHORS:    Victor Artyukhov, Nikita Demerza                               //
 //                                                                            //
 // For license and copyright information please follow this link:             //
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //

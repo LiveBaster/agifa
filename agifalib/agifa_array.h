@@ -11,6 +11,7 @@
 #define __AGIFA_ARRAY_H
 
 #include "agifadef.h"
+#include <cstring>
 
 namespace agifa_base
 {
@@ -41,8 +42,8 @@ public:
     T& operator []( index_t i );
     T operator []( index_t i ) const;
     AgifaArray<T>& operator = ( const AgifaArray<T>& );
-    friend bool operator == ( const AgifaArray<T>& aItem1, const AgifaArray<T>& aItem2 );
-    friend bool operator != ( const AgifaArray<T>& aItem1, const AgifaArray<T>& aItem2 );
+    template<T> friend bool operator == ( const AgifaArray<T>& aItem1, const AgifaArray<T>& aItem2 );
+    template<T> friend bool operator != ( const AgifaArray<T>& aItem1, const AgifaArray<T>& aItem2 );
 
     bool IsNull() const;
     index_t GetCount() const;
@@ -234,7 +235,7 @@ void AgifaArray<T>::AtInsert( index_t index, T aItem )
         SetMaxCount( m_maxCount+m_count/2+AddMaxCount );
     T* poi = m_list+index;
     if( index < m_count )
-        memmove( poi+1, poi, size_t(m_count-index)*sizeof( T ) );
+        std::memmove( poi+1, poi, size_t(m_count-index)*sizeof( T ) );
     m_count ++;
     *poi = aItem;
 }

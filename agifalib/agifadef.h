@@ -25,7 +25,8 @@ typedef result_t target_t; // тип данных для требуемого р
 typedef result_t deviation_t; // тип данных для отклонения от требуемого результата
 typedef result_t action_t; // тип данных для действия
 
-const index_t IndexEmpty = -1;
+const index_t EmptyIndex = -1;
+const id_t EmptyId = -1;
 const index_t AddCount   = 50;
 
 #define MAXSTR 1024

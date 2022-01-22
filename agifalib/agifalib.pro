@@ -18,6 +18,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     agifa_array_pointers.cpp \
+    agifa_motor.cpp \
+    agifa_node.cpp \
+    agifa_sensor.cpp \
+    agifa_system.cpp \
     agifalib.cpp
 
 HEADERS += \

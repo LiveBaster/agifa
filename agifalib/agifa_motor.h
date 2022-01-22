@@ -1,8 +1,8 @@
 // Project AGIFA                                                              //
-// Copyright © 2021 Victor Artyukhov. All Rights Reserved.                    //
+// Copyright © 2022 Victor Artyukhov. All Rights Reserved.                    //
 //                                                                            //
 // FILE:       agifa_motor.h                                                  //
-// AUTHOR:     Victor Artyukhov                                               //
+// AUTHORS:    Victor Artyukhov, Nikita Demerza                               //
 //                                                                            //
 // For license and copyright information please follow this link:             //
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //

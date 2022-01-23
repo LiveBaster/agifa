@@ -43,7 +43,7 @@ public:
     // акцептор действия
     bool ActionAcceptor( target_t target, result_t result );
     // синтезирует очередное новое действие (ориентировочно-исследовательская реакция)
-    action_t SynthesisOfAction();
+    action_t SynthesisOfAction(target_t target, result_t result ); 
 };
 
 }

@@ -67,10 +67,11 @@ The supported project target platforms are:
 
   * Linux (Debian, Ubuntu, CentOS, Fedora, Redhat)
 
-Основатели (The founders of the project):
+# Основатели (The founders of the project): #
 
 **Артюхов Виктор** (Victor Artyukhov): <br/>
 http://www.livebaster.ru <br/>
+Телеграм: @LiveBaster <br/>
 email: vic_art@livebaster.ru <br/>
 linkedin: https://www.linkedin.com/in/victor-artyukhov-livebaster <br/>
 
@@ -93,6 +94,10 @@ email: alexey.udod@gmail.com <br/>
 
 **Павел Некрасов** (Pavel Nekrasov): <br/>
 email: nekrasovp@gmail.com <br/>
+
+**Тимур Тухватуллин** (Timur Tukhvatullin): <br/>
+Телеграм: @timtuvad <br/>
+email: timtuvad@gmail.com <br/>
 <br/>
 Репозитории проекта (mirrors): <br/>
 https://github.com/LiveBaster/Agifa <br/>

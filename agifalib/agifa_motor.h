@@ -24,6 +24,9 @@ class AGIFALIB_EXPORT AgifaMotor : public AgifaLinkPointer
 protected:
     // идентификатор мотора
     id_t m_motorId;
+    action_t m_action;
+    action_t m_actionMin;
+    action_t m_actionMax;
 public:
     AgifaMotor();
     virtual ~AgifaMotor();

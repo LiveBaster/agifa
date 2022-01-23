@@ -57,9 +57,12 @@ bool AgifaNode::ActionAcceptor( target_t target, result_t result )
     return false;
 }
 
-action_t AgifaNode::SynthesisOfAction()
+action_t AgifaNode::SynthesisOfAction(target_t target, result_t result )
 {
-    return 0;
+    if(target<result){
+         return result-1
+    }
+    return result+1
 }
 
 }

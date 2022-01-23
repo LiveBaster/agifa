@@ -22,6 +22,8 @@ class AGIFALIB_EXPORT AgifaNode : public AgifaLinkPointer
 // узел дерева результатов
 {
 protected:
+    // скорость изменения действия
+    speed_t m_speed
     // идентификатор узла
     id_t m_nodeId;
     // достигнутый результат
@@ -47,7 +49,7 @@ public:
     // акцептор действия
     bool ActionAcceptor( target_t target, result_t result );
     // синтезирует очередное новое действие (ориентировочно-исследовательская реакция)
-    action_t SynthesisOfAction();
+    action_t SynthesisOfAction(action_t action, speed_t speed);
 };
 
 }

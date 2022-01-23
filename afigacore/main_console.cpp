@@ -15,8 +15,8 @@ using namespace afiga_base;
 int parrot_system(const char * filename) {
 	AgifaSystem sys;
 	
-	sys.m_sensors.InsertEnd(new AgifaSensor); // Чтение информации о датчиках
-	sys.m_motors.InsertEnd(new AgifaMotor); // Чтение информации о моторах
+	sys.m_sensors.InsertEnd(new AgifaSensor); // Г—ГІГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® Г¤Г ГІГ·ГЁГЄГ Гµ
+	sys.m_motors.InsertEnd(new AgifaMotor); // Г—ГІГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® Г¬Г®ГІГ®Г°Г Гµ
 	
     while (true)
 	{

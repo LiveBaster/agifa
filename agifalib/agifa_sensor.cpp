@@ -17,6 +17,11 @@ AgifaSensor::AgifaSensor() :
 {
 }
 
+AgifaSensor::AgifaSensor( id_t sensorId ) :
+    m_sensorId( sensorId )
+{
+}
+
 AgifaSensor::~AgifaSensor()
 {
 }

@@ -46,4 +46,82 @@ AgifaLinkPointer* AgifaSystem::Copy( const AgifaLinkPointer* poi )
     return this;
 }
 
+bool AgifaSystem::AddNode( AgifaNode* pNode )
+{
+    pNode->SetNodeId( m_trees.InsertEnd( pNode ) );
+    return true;
+}
+
+AgifaNode* AgifaSystem::SearchNode( id_t nodeId )
+{
+    AgifaNode item( nodeId );
+    index_t index = EmptyIndex;
+    if( m_trees.Search( &item, index ) )
+        return &m_trees[index];
+    return nullptr;
+}
+
+bool AgifaSystem::RemoveNode( id_t nodeId )
+{
+    AgifaNode item( nodeId );
+    index_t index = EmptyIndex;
+    if( m_trees.Search( &item, index ) ) {
+        delete m_trees.AtRemove( index );
+        return true;
+    }
+    return false;
+}
+
+bool AgifaSystem::AddSensor( AgifaSensor* pSensor )
+{
+    pSensor->SetSensorId( m_sensors.InsertEnd( pSensor ) );
+    return true;
+}
+
+AgifaSensor* AgifaSystem::SearchSensor( id_t sensorId )
+{
+    AgifaSensor item( sensorId );
+    index_t index = EmptyIndex;
+    if( m_sensors.Search( &item, index ) )
+        return &m_sensors[index];
+    return nullptr;
+}
+
+bool AgifaSystem::RemoveSensor( id_t sensorId )
+{
+    AgifaSensor item( sensorId );
+    index_t index = EmptyIndex;
+    if( m_sensors.Search( &item, index ) ) {
+        delete m_sensors.AtRemove( index );
+        return true;
+    }
+    return false;
+}
+
+bool AgifaSystem::AddMotor( AgifaMotor* pMotor )
+{
+    pMotor->SetMotorId( m_motors.InsertEnd( pMotor ) );
+    return true;
+}
+
+AgifaMotor* AgifaSystem::SearchMotor( id_t motorId )
+{
+    AgifaMotor item( motorId );
+    index_t index = EmptyIndex;
+    if( m_motors.Search( &item, index ) )
+        return &m_motors[index];
+    return nullptr;
+}
+
+bool AgifaSystem::RemoveMotor( id_t motorId )
+{
+    AgifaNode item( motorId );
+    index_t index = EmptyIndex;
+    if( m_motors.Search( &item, index ) ) {
+        delete m_motors.AtRemove( index );
+        return true;
+    }
+    return false;
+}
+
 }

@@ -17,6 +17,11 @@ AgifaMotor::AgifaMotor() :
 {
 }
 
+AgifaMotor::AgifaMotor( id_t motorId ) :
+    m_motorId( motorId )
+{
+}
+
 AgifaMotor::~AgifaMotor()
 {
 }

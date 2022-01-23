@@ -26,11 +26,15 @@ protected:
     id_t m_motorId;
 public:
     AgifaMotor();
+    AgifaMotor( id_t motorId );
     virtual ~AgifaMotor();
 
     virtual int Compare( const AgifaLinkPointer* poi );
     virtual AgifaLinkPointer* Duplicate() const;
     virtual AgifaLinkPointer* Copy( const AgifaLinkPointer* poi );
+
+    id_t GetMotorId() const { return m_motorId; }
+    void SetMotorId( id_t motorId ) { m_motorId = motorId; }
 };
 
 }

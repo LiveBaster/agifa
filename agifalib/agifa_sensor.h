@@ -26,11 +26,15 @@ protected:
     id_t m_sensorId;
 public:
     AgifaSensor();
+    AgifaSensor( id_t sensorId );
     virtual ~AgifaSensor();
 
     virtual int Compare( const AgifaLinkPointer* poi );
     virtual AgifaLinkPointer* Duplicate() const;
     virtual AgifaLinkPointer* Copy( const AgifaLinkPointer* poi );
+
+    id_t GetSensorId() const { return m_sensorId; }
+    void SetSensorId( id_t sensorId ) { m_sensorId = sensorId; }
 };
 
 }

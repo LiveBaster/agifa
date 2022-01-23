@@ -19,6 +19,13 @@ AgifaNode::AgifaNode() :
 {
 }
 
+AgifaNode::AgifaNode( id_t nodeId ) :
+    m_nodeId( nodeId ),
+    m_result( 0 ),
+    m_action( 0 )
+{
+}
+
 AgifaNode::~AgifaNode()
 {
 }

@@ -34,11 +34,15 @@ protected:
     AgifaArray<id_t> m_childNodes;
 public:
     AgifaNode();
+    AgifaNode( id_t nodeId );
     virtual ~AgifaNode();
 
     virtual int Compare( const AgifaLinkPointer* poi );
     virtual AgifaLinkPointer* Duplicate() const;
     virtual AgifaLinkPointer* Copy( const AgifaLinkPointer* poi );
+
+    id_t GetNodeId() const { return m_nodeId; }
+    void SetNodeId( id_t nodeId ) { m_nodeId = nodeId; }
 
     // акцептор действия
     bool ActionAcceptor( target_t target, result_t result );

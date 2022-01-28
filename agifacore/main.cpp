@@ -27,8 +27,10 @@ int parrot_system( const char* filename )
 {
     AgifaSystem sys;
 
-    sys.AddSensor( new AgifaSensor() );
-    sys.AddMotor( new AgifaMotor() );
+    AgifaSensor* pSensor = new AgifaSensor();
+    sys.AddSensor( pSensor );
+    AgifaMotor* pMotor = new AgifaMotor();
+    sys.AddMotor( pMotor );
 
     while (true)
     {
@@ -52,7 +54,7 @@ int parrot_system( const char* filename )
             {
                 while (!pNode->ActionAcceptor(target, result))
                 {
-                    action_t action = pNode->SynthesisOfAction();
+                    action_t action = pNode->SynthesisOfAction( *pMotor );
                     result+=action;
                 }
             }

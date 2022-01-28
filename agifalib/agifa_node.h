@@ -14,6 +14,7 @@
 #include "agifalib_global.h"
 #include "agifa_array.h"
 #include "agifa_array_pointers.h"
+#include "agifa_motor.h"
 
 namespace agifa_base
 {
@@ -47,7 +48,7 @@ public:
     // акцептор действия
     bool ActionAcceptor( target_t target, result_t result );
     // синтезирует очередное новое действие (ориентировочно-исследовательская реакция)
-    action_t SynthesisOfAction( action_t action );
+    action_t SynthesisOfAction( AgifaMotor& motor );
 };
 
 }

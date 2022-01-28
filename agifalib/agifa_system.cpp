@@ -106,7 +106,7 @@ bool AgifaSystem::AddMotor( AgifaMotor* pMotor )
 
 AgifaMotor* AgifaSystem::SearchMotor( id_t motorId )
 {
-    AgifaMotor item( motorId );
+    AgifaMotor item( motorId, 0, 0 );
     index_t index = EmptyIndex;
     if( m_motors.Search( &item, index ) )
         return &m_motors[index];

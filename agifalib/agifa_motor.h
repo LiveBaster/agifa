@@ -24,12 +24,17 @@ class AGIFALIB_EXPORT AgifaMotor : public AgifaLinkPointer
 protected:
     // идентификатор мотора
     id_t m_motorId;
+    // текущее состояние мотора
     action_t m_action;
+    // минимально возможное состояние мотора
     action_t m_actionMin;
+    // максимально возможное состояние мотора
     action_t m_actionMax;
+    // направление движения мотора
+    int m_direction;
 public:
     AgifaMotor();
-    AgifaMotor( id_t motorId );
+    AgifaMotor( id_t motorId, action_t actionMin, action_t actionMax );
     virtual ~AgifaMotor();
 
     virtual int Compare( const AgifaLinkPointer* poi );
@@ -38,6 +43,18 @@ public:
 
     id_t GetMotorId() const { return m_motorId; }
     void SetMotorId( id_t motorId ) { m_motorId = motorId; }
+
+    action_t GetAction() const { return m_action; }
+    void SetAction( action_t action ) { m_action = action; }
+
+    action_t GetActionMin() const { return m_actionMin; }
+    void SetActionMin( action_t actionMin ) { m_actionMin = actionMin; }
+
+    action_t GetActionMax() const { return m_actionMax; }
+    void SetActionMax( action_t actionMax ) { m_actionMax = actionMax; }
+
+    // синтезирует очередное новое действие (ориентировочно-исследовательская реакция)
+    action_t SynthesisOfAction();
 };
 
 }

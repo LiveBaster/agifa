@@ -46,6 +46,7 @@ int parrot_system( const char* filename )
         sys.AddNode( new AgifaNode( 0 ) );
 
         std::string input;
+        std::cout << std::endl << "> ";
         std::getline( std::cin, input );
 
         if( input == "exit" )

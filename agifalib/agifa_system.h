@@ -43,6 +43,8 @@ public:
 
     // возвращает количество узлов в m_trees
     index_t GetTreesCount() const { return m_trees.GetCount(); }
+    // очищает дерево результатов
+    void FreeTrees();
 
     // добавить новый узел ДР в m_trees. Возвращает true, если узел успешно добавлен.
     bool AddNode( AgifaNode* pNode );

@@ -46,6 +46,11 @@ AgifaLinkPointer* AgifaSystem::Copy( const AgifaLinkPointer* poi )
     return this;
 }
 
+void AgifaSystem::FreeTrees()
+{
+    m_trees.Free();
+}
+
 bool AgifaSystem::AddNode( AgifaNode* pNode )
 {
     pNode->SetNodeId( m_trees.InsertEnd( pNode ) );

@@ -24,6 +24,8 @@ class AGIFALIB_EXPORT AgifaSensor : public AgifaLinkPointer
 protected:
     // идентификатор датчика
     id_t m_sensorId;
+    // текущее состояние датчика
+    result_t m_result;
 public:
     AgifaSensor();
     AgifaSensor( id_t sensorId );
@@ -35,6 +37,9 @@ public:
 
     id_t GetSensorId() const { return m_sensorId; }
     void SetSensorId( id_t sensorId ) { m_sensorId = sensorId; }
+
+    result_t GetResult() const { return m_result; }
+    void SetResult( result_t result ) { m_result = result; }
 };
 
 }

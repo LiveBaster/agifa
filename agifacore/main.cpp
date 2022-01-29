@@ -55,24 +55,26 @@ int parrot_system( const char* filename )
 
         for( index_t index = 0; index < input.size(); index++ )
         {
-            target_t target = input[index];
+            pSensor->SetResult( input[index] );
             result_t result = 0;
 
             AgifaNode* pNode = sys.SearchNode( index );
             if( pNode )
             {
+                target_t target = pSensor->GetResult();
                 bool acceptorResult = false;
                 do
                 {
                     action_t action = pNode->SynthesisOfAction( *pMotor );
                     // преобразуем действие в букву и "озвучиваем" её
                     result = char(action)+'a';
-                    acceptorResult = pNode->ActionAcceptor( target, result );
+                    pSensor->SetResult( result );
+                    acceptorResult = pNode->ActionAcceptor( target, pSensor->GetResult() );
                 } while( !acceptorResult );
                 if( acceptorResult )
                 {
                     sys.AddNode( new AgifaNode( index+1 ) );
-                    output += (char)result;
+                    output += (char)pSensor->GetResult();
                 }
             }
         }
@@ -84,6 +86,7 @@ int parrot_system( const char* filename )
 
 int main(int argc, char *argv[])
 {
+    /*
     for (int arg = 1; arg < argc; arg++)
     {
         if (!strcmp(argv[arg], "-parrot"))
@@ -93,6 +96,9 @@ int main(int argc, char *argv[])
             return parrot_system(argv[arg + 1]);
         }
     }
+    */
+    // для отладки без файла конфигурации!!!
+    parrot_system( "" );
 
     return 0;
 }

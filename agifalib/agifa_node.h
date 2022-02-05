@@ -45,8 +45,9 @@ public:
     id_t GetNodeId() const { return m_nodeId; }
     void SetNodeId( id_t nodeId ) { m_nodeId = nodeId; }
 
-    // акцептор действия
+    // акцепторы действия
     bool ActionAcceptor( target_t target, result_t result );
+    bool ActionAcceptor( target_t target, result_t result, bool resultActionAcceptor );
     // синтезирует очередное новое действие (ориентировочно-исследовательская реакция)
     action_t SynthesisOfAction( AgifaMotor& motor );
 };

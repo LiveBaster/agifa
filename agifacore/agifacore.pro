@@ -15,6 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    agifa_brain.cpp \
+    agifa_head.cpp \
     main.cpp
 
 TRANSLATIONS += \
@@ -29,3 +31,7 @@ unix:!macx: LIBS += -L$$PWD/../build-agifalib-MyKits-Debug/ -lagifalib
 
 INCLUDEPATH += $$PWD/../agifalib
 DEPENDPATH += $$PWD/../agifalib
+
+HEADERS += \
+    agifa_brain.h \
+    agifa_head.h

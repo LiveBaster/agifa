@@ -1,79 +1,110 @@
-// Project AGIFA                                                              //
+// Project AGIFA/Core                                                         //
 // Copyright © 2022 Victor Artyukhov. All Rights Reserved.                    //
 //                                                                            //
-// FILE:       main.cpp                                                       //
-// AUTHORS:    Victor Artyukhov, Timur Tukhvatullin                           //
+// FILE:       agifa_head.cpp                                                 //
+// AUTHORS:    Victor Artyukhov                                               //
 //                                                                            //
 // For license and copyright information please follow this link:             //
 // https://github.com/LiveBaster/agifa/blob/main/LICENSE                      //
 
-#include <QCoreApplication>
-
 #include <iostream>
-#include <string>
-#include <string.h>
-#include "agifadef.h"
-#include "agifalib_global.h"
-#include "agifa_array.h"
-#include "agifa_array_pointers.h"
-#include "agifa_sensor.h"
-#include "agifa_motor.h"
-#include "agifa_node.h"
-#include "agifa_system.h"
+#include <cstdio>
 
 #include "agifa_head.h"
 
-using namespace agifa_base;
-
-int parrot_system( const char* filename )
+namespace agifa_core
 {
-    AgifaSystem sys1; // компонент "Ухо"
-    AgifaSystem sys2; // компонент "Голосовой аппарат"
 
+AgifaHead::AgifaHead(QObject *parent) :
+    QObject(parent),
+    m_isRun( false ),
+    m_pEar( nullptr ),
+    m_pVoice( nullptr )
+{
+    InitHead();
+
+    connect( &m_earThread, &QThread::started, m_pEar, &AgifaBrain::doWork );
+    connect( &m_earThread, &QThread::finished, m_pEar, &AgifaBrain::exitWork );
+    connect( m_pEar, &AgifaBrain::resultReady, this, &AgifaHead::handleResults );
+    m_pEar->moveToThread( &m_earThread );
+    m_earThread.start();
+
+}
+
+AgifaHead::~AgifaHead()
+{
+    if( m_pEar )
+    {
+        m_pEar->exitWork();
+        m_earThread.quit();
+        m_earThread.wait();
+        m_pEar = nullptr;
+    }
+    if( m_pVoice )
+    {
+        m_pVoice->exitWork();
+        m_voiceThread.quit();
+        m_voiceThread.wait();
+        m_pVoice = nullptr;
+    }
+}
+
+void AgifaHead::InitHead()
+{
+    m_pEar = new AgifaBrain();
+    m_pVoice = new AgifaBrain();
     // загружаем конфигурацию тела из xml-файла
     // ...
 
     // применяем загруженную конфигурацию тела для компонента "Ухо"
     AgifaSensor* pSensor1 = new AgifaSensor();
-    sys1.AddSensor( pSensor1 );
+    m_pEar->GetSystem().AddSensor( pSensor1 );
     AgifaMotor* pMotor1 = new AgifaMotor();
     pMotor1->SetActionMin( 0 );
     pMotor1->SetActionMax( 26 ); // 26 маленьких букв латинского алфавита
-    sys1.AddMotor( pMotor1 );
+    m_pEar->GetSystem().AddMotor( pMotor1 );
 
     // применяем загруженную конфигурацию тела для компонента "Голосовой аппарат"
     AgifaSensor* pSensor2 = new AgifaSensor();
-    sys2.AddSensor( pSensor2 );
+    m_pVoice->GetSystem().AddSensor( pSensor2 );
     AgifaMotor* pMotor2 = new AgifaMotor();
     pMotor2->SetActionMin( 0 );
     pMotor2->SetActionMax( 26 ); // 26 маленьких букв латинского алфавита
-    sys2.AddMotor( pMotor2 );
+    m_pVoice->GetSystem().AddMotor( pMotor2 );
+}
+
+void AgifaHead::run()
+{
+    m_isRun = true;
+
+    std::cout << "AgifaHead::run1()\n";
 
     while( true )
     {
         // освобождаем дерево результатов для следующего цикла
-        sys1.FreeTrees();
-        sys2.FreeTrees();
+//        m_sys1.FreeTrees();
+//        m_sys2.FreeTrees();
         // добавляем начальный узел дерева результатов
-        sys1.AddNode( new AgifaNode( 0 ) );
-        sys2.AddNode( new AgifaNode( 0 ) );
+//        m_sys1.AddNode( new AgifaNode( 0 ) );
+//        m_sys2.AddNode( new AgifaNode( 0 ) );
 
         std::string input;
         std::cout << std::endl << "> ";
         std::getline( std::cin, input );
 
         if( input == "exit" )
-            return 0;
+            break;
 
         std::string output;
 
         for( size_t index = 0; index < input.size(); index++ )
         {
-            pSensor1->SetResult( input[index] );
+            if( m_pEar )
+                m_pEar->SetSensor( 0, input[index] );
+/*
             result_t result = 0;
-
-            AgifaNode* pNode1 = sys1.SearchNode( index );
-            AgifaNode* pNode2 = sys2.SearchNode( index );
+            AgifaNode* pNode1 = m_sys1.SearchNode( index );
+            AgifaNode* pNode2 = m_sys2.SearchNode( index );
             if( pNode1 && pNode2 )
             {
                 target_t target1 = pSensor1->GetResult();
@@ -102,42 +133,38 @@ int parrot_system( const char* filename )
                 } while( !acceptorResult1 && !acceptorResult2_2 );
                 if( acceptorResult1 )
                 {
-                    sys1.AddNode( new AgifaNode( index+1 ) );
-                    sys2.AddNode( new AgifaNode( index+1 ) );
+                    m_sys1.AddNode( new AgifaNode( index+1 ) );
+                    m_sys2.AddNode( new AgifaNode( index+1 ) );
                     output += (char)pSensor1->GetResult();
                 }
             }
+*/
         }
         std::cout << std::endl << output << std::endl;
     }
 
-    return 0;
+/*
+    while( m_isRun )
+    {
+        if( getchar() == 'q' )
+            // завершение программы
+            break;
+        int delay = 1;
+        struct timespec ts = { delay/10, 1 };
+        timespec remaining;
+        nanosleep( &ts, &remaining );
+    }
+*/
+    std::cout << "AgifaHead::run2()\n";
+
+    emit finished();
 }
 
-using namespace agifa_core;
-
-int main(int argc, char *argv[])
+void AgifaHead::handleResults( const QString& result )
 {
-    QCoreApplication application( argc, argv );
 
-    AgifaHead* pAgifaHead = new class AgifaHead( &application );
-    QObject::connect( pAgifaHead, SIGNAL(finished()), &application, SLOT(quit()) );
-    QTimer::singleShot( 0, pAgifaHead, SLOT(run()) );
-    return application.exec();
+    std::cout << "AgifaHead::handleResults()" << result.toStdString() << "\n";
 
-    /*
-    for (int arg = 1; arg < argc; arg++)
-    {
-        if (!strcmp(argv[arg], "-parrot"))
-        {
-            if (arg + 1 >= argc) return 1;
+}
 
-            return parrot_system(argv[arg + 1]);
-        }
-    }
-    */
-    // для отладки без файла конфигурации!!!
-//    parrot_system( "" );
-
-//    return 0;
 }

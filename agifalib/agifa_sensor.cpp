@@ -14,13 +14,17 @@ namespace agifa_base
 
 AgifaSensor::AgifaSensor() :
     m_sensorId( EmptyId ),
-    m_result( 0 )
+    m_result( 0 ),
+    m_target( 0 ),
+    m_resultChanged( false )
 {
 }
 
 AgifaSensor::AgifaSensor( id_t sensorId ) :
     m_sensorId( sensorId ),
-    m_result( 0 )
+    m_result( 0 ),
+    m_target( 0 ),
+    m_resultChanged( false )
 {
 }
 

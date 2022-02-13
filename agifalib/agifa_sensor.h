@@ -26,6 +26,10 @@ protected:
     id_t m_sensorId;
     // текущее состояние датчика
     result_t m_result;
+    // требуемое состояние датчика
+    target_t m_target;
+    // индикатор изменения значения датчика
+    bool m_resultChanged;
 public:
     AgifaSensor();
     AgifaSensor( id_t sensorId );
@@ -39,7 +43,13 @@ public:
     void SetSensorId( id_t sensorId ) { m_sensorId = sensorId; }
 
     result_t GetResult() const { return m_result; }
-    void SetResult( result_t result ) { m_result = result; }
+    void SetResult( result_t result ) { m_result = result; SetResultChanged( true ); }
+
+    target_t GetTarget() const { return m_target; }
+    void SetTarget( target_t target ) { m_target = target; }
+
+    void SetResultChanged( bool fl ) { m_resultChanged = fl; }
+    bool IsResultChanged() const { return m_resultChanged; }
 };
 
 }

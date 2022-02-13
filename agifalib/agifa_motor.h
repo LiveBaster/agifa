@@ -32,6 +32,8 @@ protected:
     action_t m_actionMax;
     // направление движения мотора
     int m_direction;
+    // индикатор изменения значения состояния мотора
+    bool m_actionChanged;
 public:
     AgifaMotor();
     AgifaMotor( id_t motorId, action_t actionMin, action_t actionMax );
@@ -55,6 +57,9 @@ public:
 
     // синтезирует очередное новое действие (ориентировочно-исследовательская реакция)
     action_t SynthesisOfAction();
+
+    void SetActionChanged( bool fl ) { m_actionChanged = fl; }
+    bool IsActionChanged() const { return m_actionChanged; }
 };
 
 }

@@ -40,6 +40,8 @@ public slots:
     void handleResults( const QString& result );
 signals:
     void finished();
+protected:
+    void Wait();
 };
 
 }

@@ -73,6 +73,14 @@ void AgifaHead::InitHead()
     m_pVoice->GetSystem().AddMotor( pMotor2 );
 }
 
+void AgifaHead::Wait()
+{
+    int delay = 1;
+    struct timespec ts = { delay/10, 1 };
+    timespec remaining;
+    nanosleep( &ts, &remaining );
+}
+
 void AgifaHead::run()
 {
     m_isRun = true;
@@ -100,7 +108,41 @@ void AgifaHead::run()
         for( size_t index = 0; index < input.size(); index++ )
         {
             if( m_pEar )
+                m_pEar->SetNodeIndex( index );
+            if( m_pVoice )
+                m_pVoice->SetNodeIndex( index );
+            if( m_pEar )
+            {
                 m_pEar->SetSensor( 0, input[index] );
+                m_pEar->SetTarget( 0, input[index] );
+            }
+            bool acceptorResult = false;
+            do
+            {
+                // ждём действие от Уха
+                action_t earAction = 0;
+                for( int i=0; i<100; i++ )
+                {
+                    if( m_pEar->GetMotor( 0, earAction ) )
+                        break;
+                    Wait();
+                }
+                // передаём действие от Уха на датчик Голосового аппарата
+                if( m_pVoice )
+                    m_pVoice->SetSensor( 0, earAction );
+                // ждём действие от Голосового аппарата
+                action_t voiceAction = 0;
+                for( int i=0; i<100; i++ )
+                {
+                    if( m_pVoice && m_pVoice->GetMotor( 0, voiceAction ) )
+                        break;
+                    Wait();
+                }
+                // "озвучиваем" действие от Голосового аппарата и передаём Голос на датчик Уха
+                result_t result = char(voiceAction)+'a';
+                if( m_pEar )
+                    m_pEar->SetSensor( 0, result );
+            } while( !acceptorResult );
 /*
             result_t result = 0;
             AgifaNode* pNode1 = m_sys1.SearchNode( index );

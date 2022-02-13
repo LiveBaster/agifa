@@ -16,7 +16,8 @@ AgifaMotor::AgifaMotor() :
     m_motorId( EmptyId ),
     m_actionMin( 0 ),
     m_actionMax( 0 ),
-    m_direction( 1 )
+    m_direction( 1 ),
+    m_actionChanged( false )
 {
 }
 
@@ -24,7 +25,8 @@ AgifaMotor::AgifaMotor( id_t motorId, action_t actionMin, action_t actionMax ) :
     m_motorId( motorId ),
     m_actionMin( actionMin ),
     m_actionMax( actionMax ),
-    m_direction( 1 )
+    m_direction( 1 ),
+    m_actionChanged( false )
 {
 }
 
@@ -64,6 +66,7 @@ action_t AgifaMotor::SynthesisOfAction()
     if( m_action <= m_actionMin )
         // при достижении минимального ограничения изменяем направление движения мотора
         m_direction = -m_direction;
+    SetActionChanged( true );
     return m_action;
 }
 

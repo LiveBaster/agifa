@@ -39,7 +39,7 @@ public:
     bool SetSensor( agifa_base::id_t sensorId, agifa_base::result_t result );
     // потокобезопасная установка требуемого результата на датчик
     bool SetTarget( agifa_base::id_t sensorId, agifa_base::target_t target );
-    // потокобезопасная установка входных данных на датчик
+    // потокобезопасное считывание состояния мотора
     bool GetMotor( agifa_base::id_t motorId, agifa_base::action_t& action );
     // потокобезопасная установка индекса узла ДР
     bool SetNodeIndex( index_t index );

@@ -89,27 +89,31 @@ void AgifaBrain::doWork()
     {
         AgifaSensor* pSensor = m_system.SearchSensor( 0 );
         AgifaMotor* pMotor = m_system.SearchMotor( 0 );
-        if( pSensor && pMotor && !pMotor->IsActionChanged() )
+        if( pSensor && pMotor )
         {
-            // считываем текущий результат с датчика
-            target_t result = pSensor->GetResult();
-            // считываем требуемый результат с датчика
-            target_t target = pSensor->GetTarget();
-            AgifaNode* pNode = m_system.SearchNode( m_nodeIndex );
-            if( pNode )
+            QMutexLocker locker( &m_brainMutex );
+            if( !pMotor->IsActionChanged() )
             {
-                // акцептер действия
-                bool acceptorResult = pNode->ActionAcceptor( target, result );
-                if( acceptorResult )
+                // считываем текущий результат с датчика
+                target_t result = pSensor->GetResult();
+                // считываем требуемый результат с датчика
+                target_t target = pSensor->GetTarget();
+                AgifaNode* pNode = m_system.SearchNode( m_nodeIndex );
+                if( pNode )
                 {
-                    // акцептор действия сработал - требуемый результат достигнут
-                    // добавляем родительский узел
-                    m_system.AddNode( new AgifaNode( m_nodeIndex+1 ) );
-                }
-                else
-                {
-                    // выполняем очередное действие ориентировочно-исследовательской реакции
-                    pNode->SynthesisOfAction( *pMotor );
+                    // акцептер действия
+                    bool acceptorResult = pNode->ActionAcceptor( target, result );
+                    if( acceptorResult )
+                    {
+                        // акцептор действия сработал - требуемый результат достигнут
+                        // добавляем родительский узел
+                        m_system.AddNode( new AgifaNode( m_nodeIndex+1 ) );
+                    }
+                    else
+                    {
+                        // выполняем очередное действие ориентировочно-исследовательской реакции
+                        pNode->SynthesisOfAction( *pMotor );
+                    }
                 }
             }
         }

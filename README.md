@@ -87,9 +87,6 @@ email: nikitademerza@gmail.com <br/>
 **Алексей Игоревич Борисов** (Alexey Borisov): <br/>
 email: aiborisov84@gmail.com <br/>
 
-**Алексей Удод** (Alexey Udod): <br/>
-email: alexey.udod@gmail.com <br/>
-
 **Дмитрий Салихов** (Dmitriy Salikhov) - разработчик AI/AGI: <br/>
 
 **Павел Некрасов** (Pavel Nekrasov): <br/>

@@ -116,33 +116,43 @@ void AgifaHead::run()
                 m_pEar->SetSensor( 0, input[index] );
                 m_pEar->SetTarget( 0, input[index] );
             }
-            bool acceptorResult = false;
+            bool earAcceptorResult = false;
             do
             {
                 // ждём действие от Уха
                 action_t earAction = 0;
                 for( int i=0; i<100; i++ )
                 {
-                    if( m_pEar->GetMotor( 0, earAction ) )
+                    if( m_pEar && m_pEar->GetMotor( 0, earAction ) )
                         break;
                     Wait();
                 }
                 // передаём действие от Уха на датчик Голосового аппарата
                 if( m_pVoice )
-                    m_pVoice->SetSensor( 0, earAction );
-                // ждём действие от Голосового аппарата
-                action_t voiceAction = 0;
-                for( int i=0; i<100; i++ )
                 {
-                    if( m_pVoice && m_pVoice->GetMotor( 0, voiceAction ) )
-                        break;
-                    Wait();
+                    m_pVoice->SetSensor( 0, earAction );
+                    m_pVoice->SetTarget( 0, earAction );
                 }
+                //--- это внутрь функции ожидания акцептора действия Голосового Аппарата!!!
+                bool voiceAcceptorResult = false;
+                do
+                {
+                    // ждём действие от Голосового аппарата
+                    action_t voiceAction = 0;
+                    for( int i=0; i<100; i++ )
+                    {
+                        if( m_pVoice && m_pVoice->GetMotor( 0, voiceAction ) )
+                            break;
+                        Wait();
+                    }
+                    voiceAcceptorResult = m_pVoice->ActionAcceptor( m_pVoice->GetTarget( 0 ), m_pVoice->GetSensor( 0 ) );
+                } while( !voiceAcceptorResult );
+                //---
                 // "озвучиваем" действие от Голосового аппарата и передаём Голос на датчик Уха
                 result_t result = char(voiceAction)+'a';
                 if( m_pEar )
                     m_pEar->SetSensor( 0, result );
-            } while( !acceptorResult );
+            } while( !earAcceptorResult );
 /*
             result_t result = 0;
             AgifaNode* pNode1 = m_sys1.SearchNode( index );

@@ -37,6 +37,13 @@ bool AgifaBrain::SetSensor( agifa_base::id_t sensorId, agifa_base::result_t resu
     return false;
 }
 
+agifa_base::result_t AgifaBrain::GetSensor( agifa_base::id_t sensorId)
+{
+    QMutexLocker locker( &m_brainMutex );
+    AgifaSensor* pSensor = m_system.SearchSensor( sensorId );
+    return pSensor->GetResult();
+}
+
 bool AgifaBrain::SetTarget( agifa_base::id_t sensorId, agifa_base::target_t target )
 {
     QMutexLocker locker( &m_brainMutex );
@@ -47,6 +54,13 @@ bool AgifaBrain::SetTarget( agifa_base::id_t sensorId, agifa_base::target_t targ
         return true;
     }
     return false;
+}
+
+agifa_base::target_t AgifaBrain::GetTarget( agifa_base::id_t sensorId)
+{
+    QMutexLocker locker( &m_brainMutex );
+    agifa_base::target_t target = GetTarget(sensorId);
+    return target;
 }
 
 bool AgifaBrain::GetMotor( agifa_base::id_t motorId, agifa_base::action_t& action )

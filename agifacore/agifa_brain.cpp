@@ -36,12 +36,18 @@ bool AgifaBrain::SetSensor( agifa_base::id_t sensorId, agifa_base::result_t resu
     }
     return false;
 }
-
-agifa_base::result_t AgifaBrain::GetSensor( agifa_base::id_t sensorId)
+bool AgifaBrain::GetSensor( agifa_base::id_t sensorId, agifa_base::result_t result)
 {
     QMutexLocker locker( &m_brainMutex );
     AgifaSensor* pSensor = m_system.SearchSensor( sensorId );
-    return pSensor->GetResult();
+    if( pSensor )
+    {
+        result = pSensor->GetResult();
+        bool isResultChanged = pSensor->IsResultChanged();
+        pSensor->SetResultChanged( false ); // действие забрали снаружи - сбрасываем флаг изменения
+        return isResultChanged;
+    }
+    return false;
 }
 
 bool AgifaBrain::SetTarget( agifa_base::id_t sensorId, agifa_base::target_t target )
@@ -56,11 +62,18 @@ bool AgifaBrain::SetTarget( agifa_base::id_t sensorId, agifa_base::target_t targ
     return false;
 }
 
-agifa_base::target_t AgifaBrain::GetTarget( agifa_base::id_t sensorId)
+bool AgifaBrain::GetTarget( agifa_base::id_t sensorId, agifa_base::target_t target)
 {
     QMutexLocker locker( &m_brainMutex );
-    agifa_base::target_t target = GetTarget(sensorId);
-    return target;
+    AgifaSensor* pSensor = m_system.SearchSensor( sensorId );
+    if( pSensor )
+    {
+        target = pSensor->GetTarget();
+        bool isTargetChanged = pSensor->IsTargetChanged();
+        pSensor->SetTargetChanged( false ); // действие забрали снаружи - сбрасываем флаг изменения
+        return isTargetChanged;
+    }
+    return false;
 }
 
 bool AgifaBrain::GetMotor( agifa_base::id_t motorId, agifa_base::action_t& action )

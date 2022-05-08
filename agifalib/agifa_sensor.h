@@ -30,6 +30,7 @@ protected:
     target_t m_target;
     // индикатор изменения значения датчика
     bool m_resultChanged;
+    bool m_targetChanged;
 public:
     AgifaSensor();
     AgifaSensor( id_t sensorId );
@@ -50,6 +51,9 @@ public:
 
     void SetResultChanged( bool fl ) { m_resultChanged = fl; }
     bool IsResultChanged() const { return m_resultChanged; }
+
+    void SetTargetChanged( bool fl ) { m_targetChanged = fl; }
+    bool IsTargetChanged() const { return m_targetChanged; }
 };
 
 }

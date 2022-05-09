@@ -90,6 +90,20 @@ bool AgifaBrain::GetMotor( agifa_base::id_t motorId, agifa_base::action_t& actio
     return false;
 }
 
+bool AgifaBrain::ActionAcceptor( target_t target, result_t result )
+{
+    if( target == result )
+        return true;
+    return false;
+}
+
+bool AgifaBrain::ActionAcceptor( target_t target, result_t result, bool resultActionAcceptor )
+{
+    if( resultActionAcceptor && target == result )
+        return true;
+    return false;
+}
+
 bool AgifaBrain::SetNodeIndex( index_t index )
 {
     QMutexLocker locker( &m_brainMutex );

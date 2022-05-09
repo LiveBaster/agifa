@@ -43,6 +43,9 @@ public:
     bool GetTarget( agifa_base::id_t sensorId, agifa_base::target_t target );
     // потокобезопасное считывание состояния мотора
     bool GetMotor( agifa_base::id_t motorId, agifa_base::action_t& action );
+
+    bool ActionAcceptor( target_t target, result_t result );
+    bool ActionAcceptor( target_t target, result_t result, bool resultActionAcceptor );
     // потокобезопасная установка индекса узла ДР
     bool SetNodeIndex( index_t index );
 public slots:

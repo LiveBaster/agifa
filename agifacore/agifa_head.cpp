@@ -135,10 +135,10 @@ void AgifaHead::run()
                 }
                 //--- это внутрь функции ожидания акцептора действия Голосового Аппарата!!!
                 bool voiceAcceptorResult = false;
+                action_t voiceAction = 0;
                 do
                 {
                     // ждём действие от Голосового аппарата
-                    action_t voiceAction = 0;
                     for( int i=0; i<100; i++ )
                     {
                         if( m_pVoice && m_pVoice->GetMotor( 0, voiceAction ) )

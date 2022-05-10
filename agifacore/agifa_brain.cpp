@@ -25,6 +25,20 @@ AgifaBrain::~AgifaBrain()
 {
 }
 
+bool AgifaBrain::GetSensor( agifa_base::id_t sensorId, agifa_base::result_t& result )
+{
+    QMutexLocker locker( &m_brainMutex );
+    AgifaSensor* pSensor = m_system.SearchSensor( sensorId );
+    if( pSensor )
+    {
+        result = pSensor->GetResult();
+        bool isResultChanged = pSensor->IsResultChanged();
+        pSensor->SetResultChanged( false ); // результат забрали снаружи - сбрасываем флаг изменения
+        return isResultChanged;
+    }
+    return false;
+}
+
 bool AgifaBrain::SetSensor( agifa_base::id_t sensorId, agifa_base::result_t result )
 {
     QMutexLocker locker( &m_brainMutex );
@@ -32,6 +46,18 @@ bool AgifaBrain::SetSensor( agifa_base::id_t sensorId, agifa_base::result_t resu
     if( pSensor )
     {
         pSensor->SetResult( result );
+        return true;
+    }
+    return false;
+}
+
+bool AgifaBrain::GetTarget( agifa_base::id_t sensorId, agifa_base::target_t& target )
+{
+    QMutexLocker locker( &m_brainMutex );
+    AgifaSensor* pSensor = m_system.SearchSensor( sensorId );
+    if( pSensor )
+    {
+        target = pSensor->GetTarget();
         return true;
     }
     return false;

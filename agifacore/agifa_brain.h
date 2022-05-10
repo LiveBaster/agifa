@@ -35,10 +35,16 @@ public:
     const AgifaSystem& GetSystem() const { return m_system; }
     AgifaSystem& GetSystem() { return m_system; }
 
+    // потокобезопасное считывание состояния датчика
+    bool GetSensor( agifa_base::id_t sensorId, agifa_base::result_t& result );
     // потокобезопасная установка входных данных на датчик
     bool SetSensor( agifa_base::id_t sensorId, agifa_base::result_t result );
+
+    // потокобезопасное считывание требуемого результата с датчика
+    bool GetTarget( agifa_base::id_t sensorId, agifa_base::target_t& target );
     // потокобезопасная установка требуемого результата на датчик
     bool SetTarget( agifa_base::id_t sensorId, agifa_base::target_t target );
+
     // потокобезопасное считывание состояния мотора
     bool GetMotor( agifa_base::id_t motorId, agifa_base::action_t& action );
     // потокобезопасная установка индекса узла ДР

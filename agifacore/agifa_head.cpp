@@ -145,7 +145,10 @@ void AgifaHead::run()
                             break;
                         Wait();
                     }
-                    voiceAcceptorResult = m_pVoice->ActionAcceptor( m_pVoice->GetTarget( 0 ), m_pVoice->GetSensor( 0 ) );
+                    agifa_base::result_t voiceSensorResult = 0;
+                    agifa_base::target_t voiceSensorTarget = 0;
+                    if( m_pVoice && m_pVoice->GetSensor( 0, voiceSensorResult ) && m_pVoice->GetTarget( 0, voiceSensorTarget ) )
+                        voiceAcceptorResult = m_pVoice->ActionAcceptor( voiceSensorTarget, voiceSensorResult );
                 } while( !voiceAcceptorResult );
                 //---
                 // "озвучиваем" действие от Голосового аппарата и передаём Голос на датчик Уха

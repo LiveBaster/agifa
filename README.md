@@ -1,6 +1,7 @@
 # "Artificial General Intelligence For All (AGIFA/FreeAGI)" Project #
 
-[Презентация проекта](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all.pdf)
+[Презентация проекта 1](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all.pdf)
+[Презентация проекта 2](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_2_011.pdf)
 
 ![Иллюстрация](https://github.com/LiveBaster/agifa/blob/main/docs/treeofresults.png)
 

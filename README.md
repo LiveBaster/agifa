@@ -78,9 +78,6 @@ linkedin: https://www.linkedin.com/in/victor-artyukhov-livebaster <br/>
 **Иван Фролов** (Ivan Frolov): <br/>
 email: skyyk.frolov@yandex.ru <br/>
 
-**Никита Демерза** (Nikita Demerza): <br/>
-email: nikitademerza@gmail.com <br/>
-
 **Алексей Игоревич Борисов** (Alexey Borisov): <br/>
 email: aiborisov84@gmail.com <br/>
 

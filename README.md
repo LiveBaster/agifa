@@ -11,6 +11,7 @@
 **Движок один - задачи разные.**
 
 [Видео 2022-06-09: Текущие достигнутые результаты проекта AGIFA](https://www.youtube.com/watch?v=XxWApTFh3-g)
+<iframe width="500" height="375" src="https://www.youtube.com/embed/XxWApTFh3-g" frameborder="0" allowfullscreen></iframe>
 
 Все нижеперечисленные задачи будут реализовываться параллельно, с целью выделить общие компоненты на ранних этапах реализации и развития задачи.
 

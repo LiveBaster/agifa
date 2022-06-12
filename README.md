@@ -1,14 +1,16 @@
-# "Artificial General Intelligence For All (AGIFA/FreeAGI)" Project #
+# "Artificial General Intelligence For All (AGIFA)" Project #
 
 [Презентация проекта 1](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all.pdf)
 [Презентация проекта 2](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_2_011.pdf)
 
 ![Иллюстрация](https://github.com/LiveBaster/agifa/blob/main/docs/treeofresults.png)
 
-# Free open source AGIFA/FreeAGI Project #
+# Free open source AGIFA Project #
 
 Цель проекта - разработать универсальный интеллектуальный движок, способный к самообучению, развитию и решению задач разного типа.<br/>
 **Движок один - задачи разные.**
+
+![Текущие достигнутые результаты проекта AGIFA — Виктор Артюхов — Семинар AGI](https://www.youtube.com/watch?v=XxWApTFh3-g)
 
 Все нижеперечисленные задачи будут реализовываться параллельно, с целью выделить общие компоненты на ранних этапах реализации и развития задачи.
 
@@ -23,7 +25,7 @@
 8. Возможность расширения функциональности для работы с данными разных типов: текстами, изображениями, звуком, видео и т.п.
 9. Использование С++ для максимизации производительности
 
-Пять задач для AGIFA/FreeAGI:
+Пять задач для AGIFA:
 
 1. [Попугай](https://github.com/LiveBaster/agifa/blob/main/docs/AGIFA_Parrot_005.pdf) - AGIFA должна научиться говорить фразы текстом, в режиме попугая.<br/>
 Если решение будет достигнуто, то его можно будет развить до голоса, т.е. сделать функциональный аналог попугая.<br/>
@@ -52,12 +54,9 @@
  в) оптимизация потребления полезных веществ для каждого члена семьи в отдельности, с учётом имеющихся хронических заболеваний<br/>
  г) интеграция с медицинскими системами, с целью повышения полезности питания<br/>
 
-6. [Автономный дрон](#) - реальный самообучаемый робот в "железе".<br/>
-
 Telegram:
 * [https://t.me/agirussia](https://t.me/agirussia) - группа, посвященная проблемам AI и AGI.
 * [https://t.me/agifintech](https://t.me/agifintech) - группа для тех, кому может быть интересна тема использования AI/AGI для финтехнологий, а также тех, кто имеет в этой сфере компетенции.
-* [https://t.me/freeagi](https://t.me/freeagi) - группа об open-source общем искусственном интеллекте: [freeagi.org](freeagi.org), [https://github.com/FreeAGI](https://github.com/FreeAGI).
 
 
 Supported user databases
@@ -76,9 +75,6 @@ http://www.livebaster.ru <br/>
 email: vic_art@livebaster.ru <br/>
 linkedin: https://www.linkedin.com/in/victor-artyukhov-livebaster <br/>
 
-**Виктор Казаринов** (Victor Kazarinov): <br/>
-email: victor1<собака>kazarinov<точка>biz <br/>
-
 **Иван Фролов** (Ivan Frolov): <br/>
 email: skyyk.frolov@yandex.ru <br/>
 
@@ -87,8 +83,6 @@ email: nikitademerza@gmail.com <br/>
 
 **Алексей Игоревич Борисов** (Alexey Borisov): <br/>
 email: aiborisov84@gmail.com <br/>
-
-**Дмитрий Салихов** (Dmitriy Salikhov) - разработчик AI/AGI: <br/>
 
 **Павел Некрасов** (Pavel Nekrasov): <br/>
 email: nekrasovp@gmail.com <br/>
@@ -99,4 +93,3 @@ email: timtuvad@gmail.com <br/>
 <br/>
 Репозитории проекта (mirrors): <br/>
 https://github.com/LiveBaster/Agifa <br/>
-https://github.com/FreeAGI <br/>

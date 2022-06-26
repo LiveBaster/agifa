@@ -25,7 +25,9 @@
 
 using namespace agifa_base;
 
+/*
 int parrot_system( const char* filename )
+// однопотоковый вариант реализации двухкомпонентного алгоритма "Подражание"
 {
     AgifaSystem sys1; // компонент "Ухо"
     AgifaSystem sys2; // компонент "Голосовой аппарат"
@@ -113,6 +115,7 @@ int parrot_system( const char* filename )
 
     return 0;
 }
+*/
 
 using namespace agifa_core;
 

@@ -23,11 +23,19 @@ AgifaHead::AgifaHead(QObject *parent) :
 {
     InitHead();
 
+    // создаём поток и привязываем обработчики к сигналам для компонента "Ухо"
     connect( &m_earThread, &QThread::started, m_pEar, &AgifaBrain::doWork );
     connect( &m_earThread, &QThread::finished, m_pEar, &AgifaBrain::exitWork );
     connect( m_pEar, &AgifaBrain::resultReady, this, &AgifaHead::handleResults );
     m_pEar->moveToThread( &m_earThread );
     m_earThread.start();
+
+    // создаём поток и привязываем обработчики к сигналам для компонента "Голосовой аппарат"
+    connect( &m_voiceThread, &QThread::started, m_pVoice, &AgifaBrain::doWork );
+    connect( &m_voiceThread, &QThread::finished, m_pVoice, &AgifaBrain::exitWork );
+    connect( m_pVoice, &AgifaBrain::resultReady, this, &AgifaHead::handleResults );
+    m_pVoice->moveToThread( &m_voiceThread );
+    m_voiceThread.start();
 
 }
 
@@ -40,6 +48,7 @@ AgifaHead::~AgifaHead()
         m_earThread.wait();
         m_pEar = nullptr;
     }
+
     if( m_pVoice )
     {
         m_pVoice->exitWork();
@@ -133,6 +142,7 @@ void AgifaHead::run()
                     m_pVoice->SetSensor( 0, earAction );
                     m_pVoice->SetTarget( 0, earAction );
                 }
+                /*
                 //--- это внутрь функции ожидания акцептора действия Голосового Аппарата!!!
                 bool voiceAcceptorResult = false;
                 do
@@ -150,11 +160,13 @@ void AgifaHead::run()
                     if( m_pVoice && m_pVoice->GetSensor( 0, voiceSensorResult ) && m_pVoice->GetTarget( 0, voiceSensorTarget ) )
                         voiceAcceptorResult = m_pVoice->ActionAcceptor( voiceSensorTarget, voiceSensorResult );
                 } while( !voiceAcceptorResult );
+
                 //---
                 // "озвучиваем" действие от Голосового аппарата и передаём Голос на датчик Уха
                 result_t result = char(voiceAction)+'a';
                 if( m_pEar )
                     m_pEar->SetSensor( 0, result );
+                */
             } while( !earAcceptorResult );
 /*
             result_t result = 0;

@@ -83,7 +83,8 @@ bool AgifaBrain::GetMotor( agifa_base::id_t motorId, agifa_base::action_t& actio
     {
         action = pMotor->GetAction();
         bool isActionChanged = pMotor->IsActionChanged();
-        pMotor->SetActionChanged( false ); // действие забрали снаружи - сбрасываем флаг изменения
+        if( isActionChanged )
+            pMotor->SetActionChanged( false ); // действие забрали снаружи - сбрасываем флаг изменения
         return isActionChanged;
     }
     return false;

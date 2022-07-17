@@ -41,6 +41,8 @@ public:
     virtual AgifaLinkPointer* Duplicate() const;
     virtual AgifaLinkPointer* Copy( const AgifaLinkPointer* poi );
 
+    // инициализация системы
+    void InitSystem( action_t actionMin, action_t actionMax );
     // возвращает количество узлов в m_trees
     index_t GetTreesCount() const { return m_trees.GetCount(); }
     // очищает дерево результатов

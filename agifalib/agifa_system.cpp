@@ -46,6 +46,15 @@ AgifaLinkPointer* AgifaSystem::Copy( const AgifaLinkPointer* poi )
     return this;
 }
 
+void AgifaSystem::InitSystem( action_t actionMin, action_t actionMax )
+{
+    // инициализация терминальных узлов ДР
+    action_t motorRange = actionMax-actionMin;
+    m_trees.SetMaxCount( motorRange );
+    for( index_t i=0; i<motorRange; i++ )
+        m_trees.InsertEnd( new AgifaNode( i ) );
+}
+
 void AgifaSystem::FreeTrees()
 {
     m_trees.Free();

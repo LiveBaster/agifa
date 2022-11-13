@@ -2,7 +2,7 @@
 
 [Презентация проекта 1](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all.pdf)
 [Презентация проекта 2](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_2_011.pdf)
-[Презентация проекта 3](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_3_003.pdf)
+[Презентация проекта 3](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_3_008.pdf)
 
 ![Иллюстрация](https://github.com/LiveBaster/agifa/blob/main/docs/treeofresults.png)
 

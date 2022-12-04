@@ -11,7 +11,8 @@
 Цель проекта - разработать универсальный интеллектуальный движок, способный к самообучению, развитию и решению задач разного типа.<br/>
 **Движок один - задачи разные.**
 
-[Видео 2022-06-09: Текущие достигнутые результаты проекта AGIFA](https://www.youtube.com/watch?v=XxWApTFh3-g)
+[Видео 2022-06-09: Текущие достигнутые результаты проекта AGIFA](https://www.youtube.com/watch?v=XxWApTFh3-g)<br>
+[Видео 2022-12-01: Выбор требуемого результата и поиск способа его достижения в AGIFA](https://youtu.be/c9wOLWb4o9k)<br>
 
 Все нижеперечисленные задачи будут реализовываться параллельно, с целью выделить общие компоненты на ранних этапах реализации и развития задачи.
 
@@ -55,18 +56,13 @@
  в) оптимизация потребления полезных веществ для каждого члена семьи в отдельности, с учётом имеющихся хронических заболеваний<br/>
  г) интеграция с медицинскими системами, с целью повышения полезности питания<br/>
 
-Telegram:
-* [https://t.me/agirussia](https://t.me/agirussia) - группа, посвященная проблемам AI и AGI.
-* [https://t.me/agifintech](https://t.me/agifintech) - группа для тех, кому может быть интересна тема использования AI/AGI для финтехнологий, а также тех, кто имеет в этой сфере компетенции.
-
-
 Supported user databases
 
-  * MySQL
+  * PostgreSQL
 
 The supported project target platforms are:
 
-  * Linux (Debian, Ubuntu, CentOS, Fedora, Redhat)
+  * Astra Linux
 
 # Основатели (The founders of the project): #
 
@@ -75,19 +71,4 @@ http://www.livebaster.ru <br/>
 Телеграм: @LiveBaster <br/>
 email: vic_art@livebaster.ru <br/>
 linkedin: https://www.linkedin.com/in/victor-artyukhov-livebaster <br/>
-
-**Иван Фролов** (Ivan Frolov): <br/>
-email: skyyk.frolov@yandex.ru <br/>
-
-**Алексей Игоревич Борисов** (Alexey Borisov): <br/>
-email: aiborisov84@gmail.com <br/>
-
-**Павел Некрасов** (Pavel Nekrasov): <br/>
-email: nekrasovp@gmail.com <br/>
-
-**Тимур Тухватуллин** (Timur Tukhvatullin): <br/>
-Телеграм: @timtuvad <br/>
-email: timtuvad@gmail.com <br/>
 <br/>
-Репозитории проекта (mirrors): <br/>
-https://github.com/LiveBaster/Agifa <br/>

@@ -1,4 +1,4 @@
-# "Artificial General Intelligence For All (AGIFA)" Project #
+# "Artificial General Intelligence For Everyone (AGIFA)" Project #
 
 [Презентация проекта 1](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all.pdf)
 [Презентация проекта 2](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_2_011.pdf)

@@ -3,6 +3,7 @@
 [Презентация проекта 1](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all.pdf)
 [Презентация проекта 2](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_2_011.pdf)
 [Презентация проекта 3](https://github.com/LiveBaster/agifa/blob/main/docs/agi_for_all_3_008.pdf)
+[Презентация проекта 4](https://github.com/LiveBaster/agifa/blob/main/docs/livebaster_all_4_006.pdf)
 
 ![Иллюстрация](https://github.com/LiveBaster/agifa/blob/main/docs/treeofresults.png)
 
@@ -13,6 +14,7 @@
 
 [Видео 2022-06-09: Текущие достигнутые результаты проекта AGIFA](https://www.youtube.com/watch?v=XxWApTFh3-g)<br>
 [Видео 2022-12-01: Выбор требуемого результата и поиск способа его достижения в AGIFA](https://youtu.be/c9wOLWb4o9k)<br>
+[Видео 2024-02-22: Самодостаточный Разум AGI For All (AGIFA)](https://www.youtube.com/live/9A0EaFVol9Q?feature=shared)<br>
 
 Все нижеперечисленные задачи будут реализовываться параллельно, с целью выделить общие компоненты на ранних этапах реализации и развития задачи.
 
